@@ -8,7 +8,7 @@ export default function Footer() {
         <span id="created-by">
           <i className="fa-brands fa-github-square"></i>
           <a
-            href="https://github.com/vernbueno/weather-app"
+            href="https://github.com/vernbueno/weather-app-react"
             className="github-link text-decoration-none"
             target="_blank"
             rel="noreferrer"
