@@ -1,0 +1,50 @@
+.Forecast {
+  display: flex;
+  height: 100%;
+  text-align: center;
+  background-color: rgb(255, 255, 255, 0.4);
+  border-radius: 1em;
+  margin-top: 1vh;
+}
+.WeekForecast {
+  flex: 3.3;
+  margin-left: 1vw;
+  align-items: center;
+  justify-content: center;
+  margin-top: 1vh;
+  margin-bottom: 1vh;
+}
+
+.ForecastIcon {
+  animation: icon-bounce 5s 1;
+  width: 50%;
+}
+
+@keyframes icon-bounce {
+  0%,
+  25%,
+  50%,
+  75%,
+  100% {
+    transform: translateY(0);
+  }
+  40% {
+    transform: translateY(-20px);
+  }
+  60% {
+    transform: translateY(-12px);
+  }
+}
+.DayOfWeekForecast {
+  font-weight: bolder;
+  text-transform: capitalize;
+  color: rgba(0, 0, 0, 0.548);
+}
+
+.MaxTemp {
+  font-weight: bolder;
+  color: rgba(147, 115, 255, 0.952);
+}
+.MinTemp {
+  color: rgba(119, 79, 250, 0.7);
+}

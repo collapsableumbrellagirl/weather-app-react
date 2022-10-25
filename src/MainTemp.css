@@ -1,0 +1,12 @@
+#MainDegreenNumber {
+  text-align: center;
+  color: rgba(255, 255, 255);
+  font-weight: bold;
+  font-size: 75px;
+  text-shadow: 10px -2px 5px rgba(0, 0, 0, 0.2);
+  margin-top: 0;
+}
+
+.MainTemp {
+  margin: 0 auto;
+}

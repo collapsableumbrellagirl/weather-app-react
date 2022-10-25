@@ -1,0 +1,56 @@
+form .City {
+  background-color: rgb(255, 255, 255, 0.8);
+  border-radius: 5px 0px 0px 5px;
+  border: none;
+  color: gray;
+}
+form .City:focus {
+  -webkit-box-shadow: 0px 0px 20px 5px rgba(165, 138, 255, 0.47);
+  -moz-box-shadow: 0px 0px 20px 5px rgba(165, 138, 255, 0.47);
+  box-shadow: 0px 0px 20px 5px rgba(165, 138, 255, 0.47);
+  border: none;
+}
+
+form .City:hover {
+  cursor: pointer;
+  -webkit-box-shadow: 0px 0px 20px 5px rgba(165, 138, 255, 0.47);
+  -moz-box-shadow: 0px 0px 20px 5px rgba(165, 138, 255, 0.47);
+  box-shadow: 0px 0px 20px 5px rgba(165, 138, 255, 0.47);
+  transition: 300ms ease-in;
+  border: none;
+}
+
+form .Searching,
+form .Location {
+  background-color: rgba(163, 136, 253, 0.7);
+  border: white;
+  margin: 25px 1px;
+  padding: auto;
+  border-radius: 5px;
+  color: white;
+  border: white;
+}
+
+form .Searching {
+  border-radius: 0px 5px 5px 0px;
+  margin-left: 0px;
+}
+
+form .Searching:hover,
+form .Location:hover {
+  background-color: rgba(119, 79, 250, 0.7);
+  transition: all 400ms ease-in-out;
+  color: white;
+  border: none;
+}
+
+form .Locationicon {
+  animation-duration: 3s;
+}
+
+.form {
+  display: flex;
+  height: 100vh;
+  margin-top: 5vw;
+  /* height: 20vh; */
+}

@@ -1,0 +1,90 @@
+.box {
+  border: none;
+}
+
+.row {
+  height: 100%;
+}
+
+.DailyOverview {
+  margin-top: 0;
+  display: flex;
+}
+
+.left-panel {
+  flex: 3.3;
+  align-content: center;
+  background-color: rgb(255, 255, 255, 0.4);
+  border-radius: 1em;
+}
+
+#WordDescriptor {
+  font-weight: bold;
+  font-size: larger;
+  color: rgba(119, 79, 250, 0.7);
+  font-size: 40px;
+  margin-bottom: 30px;
+  margin-top: 10px;
+}
+
+#CurrentTime,
+#CurrentDate {
+  font-size: 20px;
+  color: rgba(0, 0, 0, 0.548);
+  margin-bottom: 10px;
+}
+
+#CurrentDate {
+  text-transform: capitalize;
+  margin-bottom: 10px;
+}
+
+.CurrentReading {
+  color: rgba(0, 0, 0, 0.548);
+  font-size: 25px;
+}
+
+#Humidity {
+  margin-top: 25%;
+  margin-bottom: 10%;
+}
+
+#CurrentHumidity,
+#CurrentWindSpeed {
+  font-size: 15px;
+  color: rgba(119, 79, 250, 0.7);
+}
+
+.middle-panel {
+  flex: 3.3;
+  text-align: center;
+}
+
+.right-panel {
+  flex: 3.3;
+  align-items: center;
+  justify-content: center;
+  background-color: rgb(255, 255, 255, 0.4);
+  border-radius: 1em;
+}
+
+#WeatherIcon {
+  animation: icon-bounce 5s 1;
+  width: 100%;
+}
+
+@keyframes icon-bounce {
+  0%,
+  25%,
+  50%,
+  75%,
+  100% {
+    transform: translateY(0);
+  }
+  40% {
+    transform: translateY(-20px);
+  }
+  60% {
+    transform: translateY(-12px);
+  }
+}

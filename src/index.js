@@ -1,17 +1,37 @@
-import React from 'react';
-import ReactDOM from 'react-dom/client';
-import './index.css';
-import App from './App';
-import reportWebVitals from './reportWebVitals';
+import React from "react";
+import { createRoot } from "react-dom/client";
 
-const root = ReactDOM.createRoot(document.getElementById('root'));
+import Search from "./Search";
+import "./App.css";
+import Conversion from "./Conversion";
+import Cityheader from "./Cityheader";
+import Conditions from "./CurrentConditions";
+import MainTemp from "./MainTemp";
+import Forecast from "./Forecast";
+import Footer from "./Footer";
+
+const rootElement = document.getElementById("root");
+const root = createRoot(rootElement);
+
 root.render(
-  <React.StrictMode>
-    <App />
-  </React.StrictMode>
+  <div className="App">
+    <Search />
+    <Conversion />
+    <Cityheader CityName="Elgin" />
+    <Conditions
+      WordDescriptor="Clear Skies"
+      CurrentTime="12:15 pm"
+      CurrentDate="Friday, Sep "
+      Day={30}
+      CurrentHumidity={80}
+      CurrentWindSpeed={2}
+    />
+    <MainTemp MainDegreenNumber={50} />
+    <Forecast
+      DayOfWeekForecast={["Mon", "Tue", "Wed", "Thur"]}
+      MaxTemp={67}
+      MinTemp={48}
+    />
+    <Footer />
+  </div>
 );
-
-// If you want to start measuring performance in your app, pass a function
-// to log results (for example: reportWebVitals(console.log))
-// or send to an analytics endpoint. Learn more: https://bit.ly/CRA-vitals
-reportWebVitals();
