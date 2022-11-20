@@ -1,10 +1,10 @@
 import React from "react";
 import "./MainTemp.css";
 
-export default function MainTemp(props) {
+export default function MainTemp({ temp }) {
   return (
     <div className="row MainTemp">
-      <span id="MainDegreenNumber">{props.MainDegreenNumber}°</span>
+      <span id="MainDegreenNumber"> {Math.round(temp)}°</span>
     </div>
   );
 }

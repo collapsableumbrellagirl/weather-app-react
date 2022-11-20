@@ -7,7 +7,8 @@
 }
 
 .DailyOverview {
-  margin-top: 0;
+  margin-top: 10px;
+  margin-bottom: 10px;
   display: flex;
 }
 
@@ -25,6 +26,7 @@
   font-size: 40px;
   margin-bottom: 30px;
   margin-top: 10px;
+  text-transform: capitalize;
 }
 
 #CurrentTime,

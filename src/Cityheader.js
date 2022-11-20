@@ -1,10 +1,12 @@
 import React from "react";
 import "./Cityheader.css";
 
-export default function Cityheader(props) {
+function Cityheader({ cityName }) {
   return (
-    <div className=" row Cityheader">
-      <h1 className="CityName">{props.CityName}</h1>
+    <div className="row Cityheader">
+      <h1 className="CityName">{cityName}</h1>
     </div>
   );
 }
+
+export default Cityheader;

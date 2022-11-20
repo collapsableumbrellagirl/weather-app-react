@@ -11,7 +11,7 @@ export default function Footer() {
             href="https://github.com/vernbueno/weather-app-react"
             className="github-link text-decoration-none"
             target="_blank"
-            rel="noreferrer"
+            rel="noopener noreferrer"
           >
             <span id="github-link">Open source </span>
           </a>
