@@ -23,7 +23,7 @@ export default function App() {
   let currentTimeStamp = weather ? weather.dt : "";
   console.log(weather);
   return (
-    <div className="App">
+    <div className="App container position-absolute top-50 start-50 translate-middle">
       <Search setWeather={setWeather} />
       <Conversion />
       <Cityheader cityName={cityName} />

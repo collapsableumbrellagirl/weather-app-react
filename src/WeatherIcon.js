@@ -127,7 +127,14 @@ function WeatherIcon({ iconID, sunriseTime, sunsetTime, currentTimeStamp }) {
     ? `${iconsDir}/${newWeatherDayIcon[iconID]}`
     : `${iconsDir}/${newWeatherNightIcon[iconID]}`;
 
-  return <img src={src} className="img-fluid" id="WeatherIcon" alt="icon" />;
+  return (
+    <img
+      src={src}
+      className="img-fluid align-middle"
+      id="WeatherIcon"
+      alt="icon"
+    />
+  );
 }
 
 export default WeatherIcon;

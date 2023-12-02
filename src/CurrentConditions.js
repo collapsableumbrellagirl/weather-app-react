@@ -15,14 +15,19 @@ export default function CurrentConditions({
   return (
     <div className="row DailyOverview">
       <div className="left-panel box ">
-        <div id="WordDescriptor">{wordDescriptor}</div>
+        <div
+          id="WordDescriptor"
+          className="row align-items-center justify-content-center text-center"
+        >
+          {wordDescriptor}
+        </div>
         <div id="CurrentTime">{currentTimeStamp}</div>
         <div id="CurrentDate">
           {currentDate}
           {day}
         </div>
       </div>
-      <div className="middle-panel box ">
+      <div className="middle-panel box  ">
         <WeatherIcon {...weatherIcon} />
       </div>
       <div className="right-panel box ">
