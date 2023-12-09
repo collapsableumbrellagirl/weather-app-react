@@ -20,7 +20,7 @@ export default function App() {
   let iconID = weather ? weather.weather[0].id : "";
   let sunriseTime = weather ? weather.sys.sunrise : "";
   let sunsetTime = weather ? weather.sys.sunset : "";
-  let currentTimeStamp = weather ? weather.dt : "";
+  let currentTimeStamp = weather ? weather.dt : ""; //trying to figure this out
   console.log(weather);
   return (
     <div className="App container position-absolute top-50 start-50 translate-middle">
@@ -30,8 +30,7 @@ export default function App() {
       <CurrentConditions
         wordDescriptor={wordDescriptor}
         weatherIcon={{ iconID, sunriseTime, sunsetTime, currentTimeStamp }}
-        // currentDate="placeholder "
-        // day="placeholder"
+        currentDate={currentTimeStamp} //checking why this is appearing outside the div box and not appearing by month/day
         currentHumidity={humidity}
         currentWindSpeed={windSpeed}
       />

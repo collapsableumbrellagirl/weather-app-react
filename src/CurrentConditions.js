@@ -21,11 +21,6 @@ export default function CurrentConditions({
         >
           {wordDescriptor}
         </div>
-        <div id="CurrentTime">{currentTimeStamp}</div>
-        <div id="CurrentDate">
-          {currentDate}
-          {day}
-        </div>
       </div>
       <div className="middle-panel box  ">
         <WeatherIcon {...weatherIcon} />

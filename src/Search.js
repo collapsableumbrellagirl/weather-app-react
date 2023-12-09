@@ -11,7 +11,7 @@ function Search({ setWeather }) {
     let unit = `imperial`;
     let apikey = `87b9752c714fbde6317ef3900b3d8fb6`;
     let url = `https://api.openweathermap.org/data/2.5/weather?q=${query}&units=${unit}&appid=${apikey}`;
-    axios.get(url).then(function(response) {
+    axios.get(url).then(function (response) {
       setWeather(response.data);
     });
   }
