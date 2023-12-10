@@ -1,16 +1,15 @@
 import React from "react";
-// import Icons from "./Weatherly - Original render copy 2/Cloud sunset.png";
 import "./CurrentConditions.css";
 import WeatherIcon from "./WeatherIcon";
+import FormattedDate from "./FormattedDate";
 
 export default function CurrentConditions({
   wordDescriptor,
   weatherIcon,
-  currentTimeStamp,
-  currentDate,
-  day,
+  currentTimestamp,
   currentHumidity,
   currentWindSpeed,
+  date,
 }) {
   return (
     <div className="row DailyOverview">
@@ -19,6 +18,7 @@ export default function CurrentConditions({
           id="WordDescriptor"
           className="row align-items-center justify-content-center text-center"
         >
+          <FormattedDate date={date} />
           {wordDescriptor}
         </div>
       </div>

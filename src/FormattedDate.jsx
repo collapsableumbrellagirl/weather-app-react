@@ -1,0 +1,13 @@
+export default function FormattedDate({ date }) {
+  console.log(date);
+
+  return (
+    <div className="h6">
+      <div>{date.toDateString().slice(0, -5)}</div>
+      <br />
+      <div>
+        Last Updated {date.getHours()}:{date.getMinutes()}
+      </div>
+    </div>
+  );
+}
