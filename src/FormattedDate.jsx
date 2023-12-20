@@ -5,9 +5,7 @@ export default function FormattedDate({ date }) {
     <div className="h6">
       <div>{date.toDateString().slice(0, -5)}</div>
       <br />
-      <div>
-        Last Updated {date.getHours()}:{date.getMinutes()}
-      </div>
+      <div>Last updated: {date.toTimeString().slice(0, -36)}</div>
     </div>
   );
 }
