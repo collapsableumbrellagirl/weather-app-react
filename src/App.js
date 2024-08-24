@@ -5,11 +5,12 @@ import Conversion from "./Conversion";
 import Cityheader from "./Cityheader";
 import CurrentConditions from "./CurrentConditions";
 import MainTemp from "./MainTemp";
-import Forecast from "./Forecast";
+// import Forecast from "./Forecast";
 import Footer from "./Footer";
 
 export default function App() {
   const [weather, setWeather] = useState(null);
+  const [tempUnit, setTempUnit] = useState("F");
 
   let cityName = weather ? weather.name : "";
   let wordDescriptor = weather ? weather.weather[0].description : "";
@@ -31,7 +32,12 @@ export default function App() {
   return (
     <div className="App container position-absolute top-50 start-50 translate-middle">
       <Search setWeather={setWeather} />
-      <Conversion />
+      <Conversion
+        setTempUnit={setTempUnit}
+        tempUnit={tempUnit}
+        maintemp={mainTemp}
+      />
+
       <Cityheader cityName={cityName} />
       <CurrentConditions
         date={date}
@@ -41,14 +47,16 @@ export default function App() {
         currentHumidity={humidity}
         currentWindSpeed={windSpeed}
       />
-      <MainTemp temp={mainTemp} />
-      <Forecast
+      <MainTemp
+        temp={tempUnit === "C" ? ((mainTemp - 32) * 5) / 9 : mainTemp}
+      />
+      {/* <Forecast
         timeStamp={currentTimeStamp}
         weatherIcon={iconID}
         DayOfWeekForecast={["Mon", "Tue", "Wed", "Thur"]}
         MaxTemp={67}
         MinTemp={48}
-      />
+      /> */}
       <Footer />
     </div>
   );

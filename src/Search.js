@@ -16,17 +16,15 @@ function Search({ setWeather }) {
     });
   }
 
-  function handleQuery(event) {
-    setQuery(event.target.value);
-  }
-
   return (
     <form className="Search" onSubmit={handleSubmit}>
       <input
         type="search"
         className="City"
         placeholder="Enter a city name"
-        onChange={handleQuery}
+        onChange={(event) => {
+          setQuery(event.target.value);
+        }}
       />
       <button type="submit" className="btn-md Searching">
         Search

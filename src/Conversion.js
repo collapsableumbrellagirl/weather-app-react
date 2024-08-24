@@ -1,9 +1,7 @@
 import React from "react";
 import "./Conversion.css";
 
-export default function Conversion() {
-  
-  
+export default function Conversion({ setTempUnit, tempUnit }) {
   return (
     <div className=" Conversion ">
       <form>
@@ -16,6 +14,10 @@ export default function Conversion() {
             className="btn-check btn-sm"
             name="btnradio"
             id="btn-celsius"
+            checked={tempUnit === "C"}
+            onClick={() => {
+              setTempUnit("C");
+            }}
           />
           <label className="btn btn-sm btn-outline-light" htmlFor="btn-celsius">
             °C
@@ -26,7 +28,10 @@ export default function Conversion() {
             className="btn-check btn-sm"
             name="btnradio"
             id="btn-fahrenheit"
-            defaultChecked
+            checked={tempUnit === "F"}
+            onClick={() => {
+              setTempUnit("F");
+            }}
           />
           <label
             className="btn btn-sm btn-outline-light"
