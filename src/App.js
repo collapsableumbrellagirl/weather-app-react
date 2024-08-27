@@ -5,7 +5,7 @@ import Conversion from "./Conversion";
 import Cityheader from "./Cityheader";
 import CurrentConditions from "./CurrentConditions";
 import MainTemp from "./MainTemp";
-// import Forecast from "./Forecast";
+import Forecast from "./Forecast";
 import Footer from "./Footer";
 
 export default function App() {
@@ -13,6 +13,7 @@ export default function App() {
   const [tempUnit, setTempUnit] = useState("F");
 
   let cityName = weather ? weather.name : "";
+  let coords = weather ? weather.coord : "";
   let wordDescriptor = weather ? weather.weather[0].description : "";
   let humidity = weather ? weather.main.humidity : "";
   let windSpeed = weather ? weather.wind.speed : "";
@@ -20,7 +21,7 @@ export default function App() {
   let iconID = weather ? weather.weather[0].id : "";
   let sunriseTime = weather ? weather.sys.sunrise : "";
   let sunsetTime = weather ? weather.sys.sunset : "";
-  let currentTimeStamp = weather ? weather.dt : ""; //trying to figure this out
+  let currentTimeStamp = weather ? weather.dt : "";
   let date = weather
     ? new Date(
         (weather.dt + weather.timezone + new Date().getTimezoneOffset() * 60) *
@@ -50,13 +51,14 @@ export default function App() {
       <MainTemp
         temp={tempUnit === "C" ? ((mainTemp - 32) * 5) / 9 : mainTemp}
       />
-      {/* <Forecast
+      <Forecast
         timeStamp={currentTimeStamp}
         weatherIcon={iconID}
+        coords={coords}
         DayOfWeekForecast={["Mon", "Tue", "Wed", "Thur"]}
         MaxTemp={67}
         MinTemp={48}
-      /> */}
+      />
       <Footer />
     </div>
   );

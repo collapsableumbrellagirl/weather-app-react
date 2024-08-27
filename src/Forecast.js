@@ -1,8 +1,27 @@
-import React from "react";
+import React, { useState } from "react";
 import "./Forecast.css";
-// import Icons from "./Weatherly - Original render copy 2/Cloud sunset.png";
+import Icons from "./WeatherIcon";
+import axios from "axios";
 
 export default function Forecast(props) {
+  const [forecast, setForecast] = useState(null);
+
+  console.log(forecast);
+
+  const apiKey = `87b9752c714fbde6317ef3900b3d8fb6`;
+
+  React.useEffect(() => {
+    let lon = props.coords.lon;
+    let lat = props.coords.lat;
+
+    let apiUrl = `https://api.openweathermap.org/data/2.5/forecast?lat=${lat}&lon=${lon}&appid=${apiKey}`;
+    axios.get(apiUrl).then(setForecast);
+  }, [props]);
+
+  if (!forecast) {
+    return <div> Loading...</div>;
+  }
+
   return (
     <div className="row Forecast">
       <div className="box WeekForecast">
