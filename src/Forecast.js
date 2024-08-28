@@ -33,8 +33,6 @@ export default function Forecast(props) {
     iconID: item.weather[0].id,
   }));
 
-  //format timestamp to a date string representing the day
-
   const getDayFromTimestamp = (timestamp) => {
     return timestamp.split(" ")[0];
   };
@@ -44,7 +42,6 @@ export default function Forecast(props) {
   const groupTemperatures = _.groupBy(temperatures, (temp) =>
     getDayFromTimestamp(temp.timestamp)
   );
-  console.log(groupTemperatures);
 
   const minMaxTemperatures = _.mapValues(groupTemperatures, (temps) => {
     const minTemperaturesOnly = temps.map((temps) => temps.mintemperature);
@@ -57,10 +54,8 @@ export default function Forecast(props) {
     };
   });
 
-  console.log(minMaxTemperatures);
-
-  //Get the next 4 days
-  const days = Object.keys(minMaxTemperatures).slice(0, 6); //sliced it as (1,5) to exclude the current date
+  //Get the next upcoming days
+  const days = Object.keys(minMaxTemperatures).slice(0, 6);
 
   return (
     <div className="row Forecast">

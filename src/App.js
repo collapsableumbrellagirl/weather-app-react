@@ -28,8 +28,6 @@ export default function App() {
     });
   }, []);
 
-  console.log(weather);
-
   let cityName = weather ? weather.name : "";
   let coords = weather ? weather.coord : "";
   let wordDescriptor = weather ? weather.weather[0].description : "";

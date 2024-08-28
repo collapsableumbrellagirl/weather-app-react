@@ -28,7 +28,6 @@ function Search({ setWeather }) {
       />
       <button type="submit" className="btn-md Searching">
         Search
-        {/* <i className="fa-solid fa-magnifying-glass"></i> */}
       </button>
       <button type="button" className="btn-md Location">
         <i className="fa-solid fa-location-arrow fa-beat-fade Locationicon"></i>
