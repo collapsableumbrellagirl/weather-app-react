@@ -3,6 +3,7 @@ import "./Forecast.css";
 import axios from "axios";
 import _ from "lodash";
 import WeatherIcon from "./WeatherIcon";
+import { getDisplayTemp } from "./utils";
 
 export default function Forecast(props) {
   const [forecast, setForecast] = useState(null);
@@ -22,7 +23,6 @@ export default function Forecast(props) {
   if (!forecast) {
     return <div> Loading...</div>;
   }
-  console.log(forecast);
 
   //The free API from Open Weather has no daily max or min temperatures, just max/min temps for each 3 hour time interval over 5 days. I installed lodash to help me take all the max and min temps every 3 hours over 5 days, grouped the max and min temps by date, and then for each date it pulled the hottest and coldest temps to be the daily min and max temps for the upcoming days.
 
@@ -74,10 +74,16 @@ export default function Forecast(props) {
 
             <WeatherIcon iconID={minMaxTemperatures[day].iconID} />
             <div className="MaxTemp">
-              {Math.round(minMaxTemperatures[day].max)}°
+              {Math.round(
+                getDisplayTemp(props.tempUnit, minMaxTemperatures[day].max)
+              )}
+              °
             </div>
             <div className="MinTemp">
-              {Math.round(minMaxTemperatures[day].min)}°
+              {Math.round(
+                getDisplayTemp(props.tempUnit, minMaxTemperatures[day].min)
+              )}
+              °
             </div>
           </div>
         );

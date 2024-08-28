@@ -9,6 +9,7 @@ import Forecast from "./Forecast";
 import axios from "axios";
 
 import Footer from "./Footer";
+import { getDisplayTemp } from "./utils";
 
 export default function App() {
   const [weather, setWeather] = useState(null);
@@ -60,17 +61,16 @@ export default function App() {
         date={date}
         wordDescriptor={wordDescriptor}
         weatherIcon={{ iconID, sunriseTime, sunsetTime, currentTimeStamp }}
-        currentTimestamp={currentTimeStamp} //checking why this is appearing outside the div box and not appearing by month/day
+        currentTimestamp={currentTimeStamp}
         currentHumidity={humidity}
         currentWindSpeed={windSpeed}
       />
-      <MainTemp
-        temp={tempUnit === "C" ? ((mainTemp - 32) * 5) / 9 : mainTemp}
-      />
+      <MainTemp temp={getDisplayTemp(tempUnit, mainTemp)} />
       <Forecast
         timeStamp={currentTimeStamp}
         weatherIcon={iconID}
         coords={coords}
+        tempUnit={tempUnit}
       />
       <Footer />
     </div>

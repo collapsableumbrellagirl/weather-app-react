@@ -14,7 +14,7 @@ export default function Conversion({ setTempUnit, tempUnit }) {
             className="btn-check btn-sm"
             name="btnradio"
             id="btn-celsius"
-            checked={tempUnit === "C"}
+            defaultChecked={tempUnit === "C"}
             onClick={() => {
               setTempUnit("C");
             }}
