@@ -2,14 +2,13 @@ import React, { useState } from "react";
 import axios from "axios";
 import "./Search.css";
 
-let apikey = `87b9752c714fbde6317ef3900b3d8fb6`;
-
 function Search({ setWeather }) {
-  const [query, setQuery] = useState();
+  const [query, setQuery] = useState("");
 
   function handleSubmit(event) {
     event.preventDefault();
 
+    let apikey = `152b1703b6524168cc20a42fdd50708d`;
     let unit = `imperial`;
     let url = `https://api.openweathermap.org/data/2.5/weather?q=${query}&units=${unit}&appid=${apikey}`;
     axios.get(url).then(function (response) {

@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import "./App.css";
 import Search from "./Search";
 import Conversion from "./Conversion";
@@ -6,11 +6,28 @@ import Cityheader from "./Cityheader";
 import CurrentConditions from "./CurrentConditions";
 import MainTemp from "./MainTemp";
 import Forecast from "./Forecast";
+import axios from "axios";
+
 import Footer from "./Footer";
 
 export default function App() {
   const [weather, setWeather] = useState(null);
   const [tempUnit, setTempUnit] = useState("F");
+
+  useEffect(() => {
+    navigator.geolocation.getCurrentPosition(function (position) {
+      const latitude = position.coords.latitude;
+      const longitude = position.coords.longitude;
+      let apikey = `152b1703b6524168cc20a42fdd50708d`;
+      let unit = `imperial`;
+      let locationWeatherUrl = `https://api.openweathermap.org/data/2.5/weather?lat=${latitude}&lon=${longitude}&appid=${apikey}&units=${unit}`;
+      axios.get(locationWeatherUrl).then((response) => {
+        setWeather(response.data);
+      });
+    });
+  }, []);
+
+  console.log(weather);
 
   let cityName = weather ? weather.name : "";
   let coords = weather ? weather.coord : "";
@@ -29,7 +46,6 @@ export default function App() {
       )
     : new Date();
 
-  console.log(weather);
   return (
     <div className="App container position-absolute top-50 start-50 translate-middle">
       <Search setWeather={setWeather} />
@@ -55,9 +71,6 @@ export default function App() {
         timeStamp={currentTimeStamp}
         weatherIcon={iconID}
         coords={coords}
-        DayOfWeekForecast={["Mon", "Tue", "Wed", "Thur"]}
-        MaxTemp={67}
-        MinTemp={48}
       />
       <Footer />
     </div>

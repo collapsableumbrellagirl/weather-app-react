@@ -120,12 +120,18 @@ function isDayTime(sunriseTime, sunsetTime, currentTimeStamp) {
   return currentTimeStamp > sunriseTime && currentTimeStamp < sunsetTime;
 }
 
+function isDefined(sunriseTime, sunsetTime, currentTimeStamp) {
+  return sunriseTime && sunsetTime && currentTimeStamp;
+}
+
 function WeatherIcon({ iconID, sunriseTime, sunsetTime, currentTimeStamp }) {
   let iconsDir = `/Weatherly-icon-render`;
 
-  let src = isDayTime(sunriseTime, sunsetTime, currentTimeStamp)
-    ? `${iconsDir}/${newWeatherDayIcon[iconID]}`
-    : `${iconsDir}/${newWeatherNightIcon[iconID]}`;
+  let src =
+    !isDefined(sunriseTime, sunsetTime, currentTimeStamp) ||
+    isDayTime(sunriseTime, sunsetTime, currentTimeStamp)
+      ? `${iconsDir}/${newWeatherDayIcon[iconID]}`
+      : `${iconsDir}/${newWeatherNightIcon[iconID]}`;
 
   return (
     <img

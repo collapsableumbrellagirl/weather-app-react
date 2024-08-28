@@ -1,5 +1,5 @@
 export default function FormattedDate({ date }) {
-  console.log(date);
+  // console.log(date);
 
   return (
     <div className="h6">
